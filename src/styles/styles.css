@@ -1,0 +1,64 @@
+/* Color palette */
+
+:root {
+	--lipstick: #e11e25;
+}
+
+/* Text styles */
+
+title {
+	font-family: HelveticaNeue;
+	font-size: 17px;
+	font-weight: 500;
+	font-style: normal;
+	font-stretch: normal;
+	color: #030303;
+}
+
+.button-secondary {
+	font-family: HelveticaNeue;
+	font-size: 17px;
+	font-weight: 300;
+	font-style: normal;
+	font-stretch: normal;
+	letter-spacing: 0.3px;
+	color: #037aff;
+}
+
+header {
+	font-family: SFUIText;
+	font-size: 17px;
+	font-weight: 300;
+	font-style: normal;
+	font-stretch: normal;
+	letter-spacing: -0.4px;
+	color: #ffffff;
+}
+
+.form-legend {
+	font-family: AvenirNext;
+	font-size: 16px;
+	font-weight: 500;
+	font-style: normal;
+	font-stretch: normal;
+	color: #4a4a4a;
+}
+
+.form-inpukk {
+	font-family: AvenirNext;
+	font-size: 14px;
+	font-weight: normal;
+	font-style: normal;
+	font-stretch: normal;
+	color: #4a4a4a;
+}
+
+.notification-content {
+	font-family: HelveticaNeue;
+	font-size: 13px;
+	font-weight: 300;
+	font-style: normal;
+	font-stretch: normal;
+	letter-spacing: 0.4px;
+	color: #000000;
+}

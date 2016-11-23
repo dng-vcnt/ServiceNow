@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+  <meta charset="UTF-8">
+  <title>Service Now</title>
+<!-- bower:css -->
+<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+<!-- endbower -->
+
+<!-- inject:css -->
+<link rel="stylesheet" href="styles/styles.css">
+<!-- endinject -->
+</head>
+
+<body ng-controller="indexController as indexCtrl">
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="#">Service Now</a>
+			</div>
+			<ul class="nav navbar-nav navbar-left nav-pills">
+				<li ng-repeat="items in indexCtrl.nav"><a href="#">{{items}}</a></li>
+			</ul>
+			<ul class="nav navbar-nav navbar-right nav-pills">
+				<li ng-repeat="items in indexCtrl.navUser"><a href="#">{{items}}</a></li>
+			</ul>
+		</div>
+	</nav>
+
+<!-- bower:js -->
+<script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/jquery/dist/jquery.js"></script>
+<script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+<!-- endbower -->
+<!-- inject:js -->
+<script src="app/app.module.js"></script>
+<script src="app/index.controller.js"></script>
+<!-- endinject -->
+</body>
+</html>

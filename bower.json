@@ -1,0 +1,30 @@
+{
+  "name": "servicenow",
+  "description": "ui code test",
+  "main": "index.js",
+  "authors": [
+    "Vincent Duong"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/dng-vcnt/ServiceNow",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "./src/bower_components",
+    "test",
+    "tests"
+  ],
+  "overrides": {
+    "bootstrap": {
+      "main": [
+        "dist/css/bootstrap.css",
+        "dist/js/bootstrap.js"
+      ]
+    }
+  },
+  "dependencies": {
+    "angular": "^1.5.8",
+    "bootstrap": "boostrap#^3.3.7"
+  }
+}
