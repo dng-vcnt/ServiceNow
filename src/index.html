@@ -12,9 +12,10 @@
 <!-- endinject -->
 </head>
 
-<body ng-controller="indexController as indexCtrl">
+<body ng-controller="IndexController as indexCtrl">
+	<!-- Nav bar -->
 	<nav class="navbar navbar-inverse navbar-fixed-top">
-		<div class="container-fluid">
+		<div class="container">
 			<div class="navbar-header">
 				<a class="navbar-brand" href="#">Service Now</a>
 			</div>
@@ -26,7 +27,35 @@
 			</ul>
 		</div>
 	</nav>
+	
+	<!-- Search bar -->
+	<div class="container-fluid" id="well-black">
+		<input type="text" class="form-control input-sm" placeholder="Search Solution Center...">
+	</div>
 
+	<!-- Welcome banner -->
+	<div class="container-fluid">
+		<h2 class="text-center">Welcome, Cory! What would you like to accomplish today?</h2>
+	</div>
+
+	<!-- Solution Section -->
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-12 text-center">
+				<p>I need a 
+					<select ng-model="indexCtrl.selectedSolution" ng-options="solution.key for solution in indexCtrl.solutionOptions">
+					</select>
+					for 
+					<select ng-model="indexCtrl.industry" options="">
+						<option value="" selected>any industry</option>
+					</select> 
+					and 
+					<select ng-model="indexCtrl.product" options="">
+						<option value="" selected>any product</option>
+					</select>.</p>
+				<button class="button-secondary">Find it!</button>
+			</div>
+		</div>
 <!-- bower:js -->
 <script src="bower_components/angular/angular.js"></script>
 <script src="bower_components/jquery/dist/jquery.js"></script>
@@ -34,6 +63,7 @@
 <!-- endbower -->
 <!-- inject:js -->
 <script src="app/app.module.js"></script>
+<script src="app/core/index.factory.js"></script>
 <script src="app/index.controller.js"></script>
 <!-- endinject -->
 </body>

@@ -62,3 +62,12 @@ header {
 	letter-spacing: 0.4px;
 	color: #000000;
 }
+
+body {
+	padding-top: 50px;
+}
+
+#well-black {
+	background-color: black;
+	height: 36px;
+}
