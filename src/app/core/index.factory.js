@@ -10,9 +10,9 @@
     /* @ngInject */
     function indexFactory($http, $q) {
         var service = {
-            func: func
-            // getSolutions: getSolutions,
-            // getWins: getWins
+            func: func,
+            getSolutions: getSolutions,
+            getWins: getWins
 
         };
         return service;
@@ -23,8 +23,9 @@
         }
 
         function getSolutions() {
+            // Retrieve data from solution json file
         	var defer = $q.defer();
-            $http.get(solutions.json).then(
+            $http.get('solutions.json').then(
                 function(response) {
                     defer.resolve(response.data);
                 },
@@ -36,8 +37,9 @@
         }
 
         function getWins() {
+            // Retrieve data from solution win json file
         	var defer = $q.defer();
-            $http.get(solutionwin.json).then(
+            $http.get('solutionwin.json').then(
                 function(response) {
                     defer.resolve(response.data);
                 },

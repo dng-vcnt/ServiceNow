@@ -67,6 +67,13 @@ body {
 	padding-top: 50px;
 }
 
+.table > thead > tr > th, .table > tbody > tr > th, .table > tfoot > tr > th, .table > thead > tr > td, .table > tbody > tr > td, .table > tfoot > tr > td {
+    padding: 8px;
+    line-height: 1.42857143;
+    vertical-align: top;
+    border-top: none;
+}
+
 #well-black {
 	background-color: black;
 	height: 36px;
