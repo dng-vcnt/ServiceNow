@@ -14,8 +14,6 @@
         //functions
         vm.getSolutions = getSolutions;
         vm.getWins = getWins;
-        vm.removeIndustryDups = removeIndustryDups;
-        vm.removeProductDups = removeProductDups;
 
         //variables
         vm.industries;
@@ -25,10 +23,6 @@
         vm.solutions = [];
         vm.solutionOptions = [];
         vm.selectedSolution;
-        vm.solIndustries;
-        vm.solProducts;
-        vm.winIndustries;
-        vm.winProducts;
         vm.wins = [];
 
         activate();
@@ -55,10 +49,6 @@
         			console.log("success: solution json");
         			vm.solutions = data;
                     console.log(vm.solutions);
-                    vm.solIndustries = removeIndustryDups(data);
-                    console.log(vm.solIndustries);
-                    vm.solProducts = removeProductDups(data)
-                    console.log(vm.solProducts);
         		},
         		function(error) {
         			console.log(error);
@@ -73,40 +63,11 @@
         			console.log("success: solution win json");
         			vm.wins = data;
                     console.log(vm.wins);
-                    vm.winIndustries = removeIndustryDups(data);
-                    console.log(vm.winIndustries);
-                    vm.winProducts = removeProductDups(data);
-                    console.log(vm.winProducts);
         		},
         		function(error) {
         			console.log(error);
         		}
         	);
-        }
-
-        function removeIndustryDups(solution) {
-            // Remove duplicates from all industries
-            var array = [];
-            var temp = "";
-            var j = 0;
-            for (var i = 0; i < solution.length; i++) {
-                if (temp != solution[i].industry) {
-                    array[j] = { name: solution[i].industry };
-                    temp = solution[i].industry;
-                    j++;
-                }
-            }
-
-            return array;
-        }
-
-        function removeProductDups(solution) {
-            // Remove duplicates from all products
-            var array = solution.filter(function(elem, index, self) {
-                return self.indexOf(elem) == index;
-            });
-
-            return array;
         }
     }
 })();

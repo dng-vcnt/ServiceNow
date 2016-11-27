@@ -63,10 +63,97 @@ header {
 	color: #000000;
 }
 
+/* Custom CSS */
+
 body {
 	padding-top: 50px;
 }
 
+/* Welcome Cory Section */
+#hero {
+	background: url(/images/hero-sm.png);
+	height: 61px;
+}
+
+.welcome-cory-what {
+	/*width: 559.5px;*/
+	/*margin-top: 18.4px;*/
+	height: 15px;
+	font-family: OpenSans, Sans-serif;
+	font-size: 17px;
+	font-weight: 300;
+	font-style: normal;
+	font-stretch: normal;
+	line-height: 61px;
+	text-align: center;
+	color: #adadad;
+}
+
+.welcome-cory-what .text-style-1 {
+	color: #d7001d;
+}
+
+/* Solution Section */
+.i-need-a-solution-fo {
+/*	width: 360px;*/
+	height: 80px;
+	font-family: OpenSans, Sans-serif;
+	font-size: 24px;
+	font-weight: 300;
+	font-style: normal;
+	font-stretch: normal;
+	line-height: 1.67;
+	text-align: center;
+	color: #4a4a4a;
+}
+
+.i-need-a-solution-fo .text-style-2 {
+	color: #e11e25;
+	color: var(--lipstick);
+}
+
+/* Find it Button */
+.nl-form .find-it {
+	width: 86.5px;
+	height: 15.5px;
+	font-family: OpenSans, Sans-serif;
+	font-size: 14px;
+	font-weight: 300;
+	font-style: normal;
+	font-stretch: normal;
+	text-align: center;
+	color: #ffffff;
+}
+
+.nl-form .rectangle-21 {
+	width: 80px;
+	height: 30px;
+	border-radius: 2px;
+	background-color: #e11e25;
+	background-color: var(--lipstick);
+}
+
+#spacing {
+	padding-bottom: 163.5px;
+}
+
+.rectangle-12 {
+	width: 191.5px;
+	height: 214.5px;
+	background-color: #e11e25;
+	background-color: var(--lipstick);
+}
+
+.jumbotron {
+	background-color: #333333;
+}
+
+#well-black {
+	background-color: black;
+	height: 36px;
+}
+
+/* Overwrite bootstrap's table css */
 .table > thead > tr > th, .table > tbody > tr > th, .table > tfoot > tr > th, .table > thead > tr > td, .table > tbody > tr > td, .table > tfoot > tr > td {
     padding: 8px;
     line-height: 1.42857143;
@@ -74,7 +161,4 @@ body {
     border-top: none;
 }
 
-#well-black {
-	background-color: black;
-	height: 36px;
-}
+

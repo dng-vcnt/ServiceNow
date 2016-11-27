@@ -25,6 +25,8 @@
   },
   "dependencies": {
     "angular": "^1.5.8",
-    "bootstrap": "boostrap#^3.3.7"
+    "bootstrap": "boostrap#^3.3.7",
+    "NaturalLanguageForm": "*",
+    "angular-filter": "^0.5.11"
   }
 }

@@ -5,6 +5,7 @@
   <title>Service Now</title>
 <!-- bower:css -->
 <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+<link rel="stylesheet" href="bower_components/NaturalLanguageForm/css/component.css" />
 <!-- endbower -->
 
 <!-- inject:css -->
@@ -34,8 +35,8 @@
 	</div>
 
 	<!-- Welcome banner -->
-	<div class="container-fluid">
-		<h2 class="text-center">Welcome, Cory! What would you like to accomplish today?</h2>
+	<div class="container-fluid" id="hero">
+		<p class="welcome-cory-what text-center">Welcome, <span class="text-style-1">Cory!</span> What would you like to accomplish today?</p>
 	</div>
 
 	<br>
@@ -44,33 +45,42 @@
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-xs-12 col-md-6 col-md-offset-3 text-center">
-				<p>I need a 
-					<select ng-model="indexCtrl.selectedSolution" ng-options="solution.key for solution in indexCtrl.solutionOptions">
+				<form id="nl-form" class="nl-form">
+					<p class="i-need-a-solution-fo">I need a 
+					<select ng-model="indexCtrl.selectedSolution" ng-options="solution.key for solution in indexCtrl.solutionOptions" class="text-style-2">
 					</select>
 					for 
 					<!-- Industries when solution is selected -->
-					<select ng-model="indexCtrl.industry" ng-options="industry.name for industry in indexCtrl.solIndustries" ng-if="indexCtrl.selectedSolution == indexCtrl.solutionOptions[0]">
+					<select ng-model="indexCtrl.industry" ng-if="indexCtrl.selectedSolution == indexCtrl.solutionOptions[0]">
 						<option value="" selected>any industry</option>
-					</select> 
+						<option ng-repeat="solution in indexCtrl.solutions | orderBy: 'industry' | filter: indexCtrl.product | unique: 'industry'">{{solution.industry}}</option>
+					</select>
 					<!-- Industries when solution win is selected -->
-					<select ng-model="indexCtrl.industry" ng-options="industry.name for industry in indexCtrl.winIndustries" ng-if="indexCtrl.selectedSolution == indexCtrl.solutionOptions[1]">
+					<select ng-model="indexCtrl.industry" ng-if="indexCtrl.selectedSolution == indexCtrl.solutionOptions[1]" class="text-style-2">
 						<option value="" selected>some industry</option>
-					</select> 
+						<option ng-repeat="win in indexCtrl.wins | orderBy: 'industry' | filter: indexCtrl.product | unique: 'industry'">{{win.industry}}</option>
+					</select>
 					and 
-					<select ng-model="indexCtrl.product" ng-options="product.name for product in indexCtrl.solProducts" ng-if="indexCtrl.selectedSolution == indexCtrl.solutionOptions[0]">
+					<!-- Products when solution is selected -->
+					<select ng-model="indexCtrl.product" ng-if="indexCtrl.selectedSolution == indexCtrl.solutionOptions[0]" class="text-style-2">
 						<option value="" selected>any product</option>
+						<option ng-repeat="solution in indexCtrl.solutions | orderBy: 'product' | filter: indexCtrl.industry | unique: 'product'">{{solution.product}}</option>
 					</select>
-					<select ng-model="indexCtrl.product" ng-options="product.name for product in indexCtrl.winProducts" ng-if="indexCtrl.selectedSolution == indexCtrl.solutionOptions[1]">
-						<option value="" selected>any product</option>
-					</select>
-					.</p>
-				<br>
-				<button class="button-secondary">Find it!</button>
+					<!-- Products when solution win is selected -->
+					<select ng-model="indexCtrl.product" ng-if="indexCtrl.selectedSolution == indexCtrl.solutionOptions[1]" class="text-style-2">
+						<option value="" selected>some product</option>
+						<option ng-repeat="win in indexCtrl.wins | orderBy: 'product' | filter: indexCtrl.industry | unique: 'product'">{{win.product}}</option>
+					</select>.
+					</p>
+					<button class="rectangle-21 find-it" type="submit">Find it!</button>
+				<div class="nl-overlay"></div>
+				</form>
 			</div>
 		</div>
 
+		<!-- Horizontal bar -->
 		<div class="row">
-			<div class="col-xs-6 col-md-2 col-md-offset-5">
+			<div class="col-xs-12 col-md-2 col-md-offset-5">
 				<br><hr><br>
 			</div>
 		</div>
@@ -78,23 +88,25 @@
 		<!-- Submit and view solution/wins -->
 		<div class="row">
 			<div class="col-xs-6 col-md-2 col-md-offset-4 text-center">
-				<img src="#" alt="light bulb image" class="img-circle">
-				<br>
+				<img src="/images/lightbulb-sm.png" alt="light bulb image" class="img-circle">
+				<br><br>
 				<a href="#">Submit a Solution</a>
-				<br>
+				<br><br>
 				<a href="#">View my Solutions</a>
 			</div>
 			<div class="col-xs-6 col-md-2 text-center" class="img-circle">
-				<img src="#" alt="trophy image">
-				<br>
+				<img src="/images/trophy-sm.png" alt="trophy image">
+				<br><br>
 				<a href="#">Submit a Solution Win</a>
-				<br>
+				<br><br>
 				<a href="#">View my Solution Wins</a>
 			</div>
 		</div>
+
+		<div class="row" id="spacing"></div>
 	</div>
 
-	<nav class="navbar navbar-inverse navbar-fixed-bottom">
+	<div class="jumbotron">
 		<div class="container">
 			<div class="row">
 				<div class="col-xs-12 col-md-4 col-md-offset-4">
@@ -118,19 +130,26 @@
 				</div>
 			</div>
 		</div>
-	</nav>
+	</div>
 
 
-	
+
 <!-- bower:js -->
 <script src="bower_components/angular/angular.js"></script>
 <script src="bower_components/jquery/dist/jquery.js"></script>
 <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+<script src="bower_components/NaturalLanguageForm/js/nlform.js"></script>
+<script src="bower_components/NaturalLanguageForm/js/modernizr.custom.js"></script>
+<script src="bower_components/angular-filter/dist/angular-filter.js"></script>
 <!-- endbower -->
 <!-- inject:js -->
 <script src="app/app.module.js"></script>
 <script src="app/core/index.factory.js"></script>
 <script src="app/index.controller.js"></script>
-<!-- endinject -->
+<!-- endinject -->	
+<!-- Natural Language -->
+<script>
+	var nlform = new NLForm( document.getElementById( 'nl-form' ) );
+</script>
 </body>
 </html>
