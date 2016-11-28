@@ -7,7 +7,9 @@
 <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
 <link rel="stylesheet" href="bower_components/NaturalLanguageForm/css/component.css" />
 <!-- endbower -->
-
+<!-- font -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans">
+<!-- endfont -->
 <!-- inject:css -->
 <link rel="stylesheet" href="styles/styles.css">
 <!-- endinject -->
@@ -47,17 +49,24 @@
 			<div class="col-xs-12 col-md-6 col-md-offset-3 text-center">
 				<form id="nl-form" class="nl-form">
 					<p class="i-need-a-solution-fo">I need a 
+					<!-- Natural language form version -->
+					<!-- <select ng-model="indexCtrl.selectedSolution" class="text-style-2">
+						<option value="1" selected>solution</option>
+						<option value="2">solution win</option>
+					</select> -->
+					<!-- <pre>{{indexCtrl.selectedSolution}}</pre> -->
+
 					<select ng-model="indexCtrl.selectedSolution" ng-options="solution.key for solution in indexCtrl.solutionOptions" class="text-style-2">
 					</select>
 					for 
 					<!-- Industries when solution is selected -->
-					<select ng-model="indexCtrl.industry" ng-if="indexCtrl.selectedSolution == indexCtrl.solutionOptions[0]">
+					<select ng-model="indexCtrl.industry" ng-if="indexCtrl.selectedSolution == indexCtrl.solutionOptions[0]" class="text-style-2">
 						<option value="" selected>any industry</option>
 						<option ng-repeat="solution in indexCtrl.solutions | orderBy: 'industry' | filter: indexCtrl.product | unique: 'industry'">{{solution.industry}}</option>
 					</select>
 					<!-- Industries when solution win is selected -->
 					<select ng-model="indexCtrl.industry" ng-if="indexCtrl.selectedSolution == indexCtrl.solutionOptions[1]" class="text-style-2">
-						<option value="" selected>some industry</option>
+						<option value="" selected>any industry</option>
 						<option ng-repeat="win in indexCtrl.wins | orderBy: 'industry' | filter: indexCtrl.product | unique: 'industry'">{{win.industry}}</option>
 					</select>
 					and 
@@ -68,12 +77,12 @@
 					</select>
 					<!-- Products when solution win is selected -->
 					<select ng-model="indexCtrl.product" ng-if="indexCtrl.selectedSolution == indexCtrl.solutionOptions[1]" class="text-style-2">
-						<option value="" selected>some product</option>
+						<option value="" selected>any product</option>
 						<option ng-repeat="win in indexCtrl.wins | orderBy: 'product' | filter: indexCtrl.industry | unique: 'product'">{{win.product}}</option>
 					</select>.
 					</p>
 					<button class="rectangle-21 find-it" type="submit">Find it!</button>
-				<div class="nl-overlay"></div>
+					<div class="nl-overlay"></div>
 				</form>
 			</div>
 		</div>
@@ -102,10 +111,10 @@
 				<a href="#">View my Solution Wins</a>
 			</div>
 		</div>
-
 		<div class="row" id="spacing"></div>
 	</div>
 
+	<!-- Footer section -->
 	<div class="jumbotron">
 		<div class="container">
 			<div class="row">

@@ -30,6 +30,7 @@
         ////////////////
 
         function activate() {
+            // Initializations
         	vm.nav = ['Solutions', 'Wins', 'People', 'Demo Center'];
 			vm.navUser = ['Cory Micek', 'Log Out'];
 			vm.solutionOptions = [
@@ -37,6 +38,8 @@
 				{key: 'solution win'}
 			];
 			vm.selectedSolution = vm.solutionOptions[0];
+            // vm.selectedSolution = 1;
+
 
             getSolutions();
             getWins();
